@@ -1,5 +1,7 @@
 'use client'
 
+import { basePath } from './config';
+
 export default function Menu() {
   // Helper function to convert dish name to filename
   const getImagePath = (dishName: string) => {
@@ -8,7 +10,7 @@ export default function Menu() {
       .replace(/\s+/g, '-')
       .replace(/[(),/]/g, '')
       .replace(/--+/g, '-');
-    return `/assets/food-images/${filename}.jpg`;
+    return `${basePath}/assets/food-images/${filename}.jpg`;
   };
 
   const leftColumn = {
@@ -22,7 +24,7 @@ export default function Menu() {
       { name: "HOTDOG, GIANT TJ", price: "₱99" },
       { name: "HOTDOG, JUMBO (1PC)", price: "₱70" },
       { name: "LIEMPO", price: "₱120" },
-      { name: "LONGGANISA (2PCS)", price: "₱120" },
+      { name: "LONGGANISA (3PCS)", price: "₱120" },
       { name: "PORKCHOP", price: "₱120" },
       { name: "SAUSAGE, HUNGARIAN", price: "₱99" },
       { name: "SPAM (3PCS)", price: "₱99" },
@@ -63,7 +65,7 @@ export default function Menu() {
         {/* Quick Link */}
         <div className="flex justify-end mb-4">
           <a
-            href="/cocina-meals"
+            href={`${basePath}/cocina-meals`}
             className="bg-white text-red-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg"
           >
             View Grid Layout →

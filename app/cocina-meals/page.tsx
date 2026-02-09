@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import { basePath } from '../config';
 
 export default function CocinaMealsGrid() {
   const gridRef = useRef<HTMLDivElement>(null)
@@ -12,7 +13,7 @@ export default function CocinaMealsGrid() {
       .replace(/\s+/g, '-')
       .replace(/[(),/]/g, '')
       .replace(/--+/g, '-');
-    return `/assets/food-images/${filename}.jpg`;
+    return `${basePath}/assets/food-images/${filename}.jpg`;
   };
 
   const meals = [
@@ -74,7 +75,7 @@ export default function CocinaMealsGrid() {
         {/* Navigation Buttons */}
         <div className="flex justify-between items-center mb-4">
           <a
-            href="/"
+            href={`${basePath}/`}
             className="bg-white text-red-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg"
           >
             ← Back to Menu
@@ -87,25 +88,23 @@ export default function CocinaMealsGrid() {
           </button>
         </div>
 
-        {/* Grid Content to Export */}
-        <div ref={gridRef}>
-          {/* Header */}
-          <div className="flex flex-col md:flex-row justify-between items-start mb-8">
-            <div className="mb-4 md:mb-0">
-              <h1 className="text-5xl md:text-7xl font-black text-yellow-300 drop-shadow-lg"
-                  style={{textShadow: '3px 3px 6px rgba(0,0,0,0.3)'}}>
-                COCINA MEALS*
-              </h1>
-            </div>
-
-            <div className="bg-red-700 rounded-full px-8 py-4 relative">
-              <h2 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Menu</h2>
-            </div>
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start mb-8">
+          <div className="mb-4 md:mb-0">
+            <h1 className="text-5xl md:text-7xl font-black text-yellow-300 drop-shadow-lg"
+                style={{textShadow: '3px 3px 6px rgba(0,0,0,0.3)'}}>
+              COCINA MEALS*
+            </h1>
           </div>
 
-          {/* Main Content */}
-          <div className="max-w-7xl mx-auto">
-            <div className="bg-red-700 bg-opacity-90 rounded-lg p-8 shadow-2xl">
+          <div className="bg-red-700 rounded-full px-8 py-4 relative">
+            <h2 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Menu</h2>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="max-w-7xl mx-auto">
+          <div ref={gridRef} className="bg-red-700 bg-opacity-90 rounded-lg p-8 shadow-2xl">
               {/* Grid Layout */}
               <div className="grid grid-cols-7 gap-4">
                 {meals.map((meal, idx) => (
@@ -130,23 +129,22 @@ export default function CocinaMealsGrid() {
                   </div>
                 ))}
               </div>
-            </div>
+          </div>
 
-            {/* Footer Notes */}
-            <div className="mt-8 text-center bg-yellow-400 bg-opacity-90 rounded-lg p-4">
-              <p className="text-sm text-red-900 font-semibold">
-                *with Cocina Rice & Egg
-              </p>
-              <p className="text-sm text-red-800">add 15 for sizzling sauce</p>
-              <p className="text-sm text-red-800">add 10 for garlic cheese sauce</p>
-            </div>
+          {/* Footer Notes */}
+          <div className="mt-8 text-center bg-yellow-400 bg-opacity-90 rounded-lg p-4">
+            <p className="text-sm text-red-900 font-semibold">
+              *with Cocina Rice & Egg
+            </p>
+            <p className="text-sm text-red-800">add 15 for sizzling sauce</p>
+            <p className="text-sm text-red-800">add 10 for garlic cheese sauce</p>
+          </div>
 
-            {/* Contact Info */}
-            <div className="mt-6 text-center text-white">
-              <p className="font-bold text-xl mb-2">cocina</p>
-              <p className="text-sm mb-1">📍 124 F. Manalo St., Calzada Tipas, Taguig</p>
-              <p className="text-sm">📞 0999 482 5762 / 0917 726 0908 (Viber)</p>
-            </div>
+          {/* Contact Info */}
+          <div className="mt-6 text-center text-white">
+            <p className="font-bold text-xl mb-2">cocina</p>
+            <p className="text-sm mb-1">📍 124 F. Manalo St., Calzada Tipas, Taguig</p>
+            <p className="text-sm">📞 0999 482 5762 / 0917 726 0908 (Viber)</p>
           </div>
         </div>
       </div>

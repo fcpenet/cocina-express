@@ -60,6 +60,16 @@ export default function Menu() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-300 rounded-full opacity-20 blur-3xl"></div>
 
       <div className="container mx-auto px-4 py-8 relative z-10">
+        {/* Quick Link */}
+        <div className="flex justify-end mb-4">
+          <a
+            href="/cocina-meals"
+            className="bg-white text-red-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg"
+          >
+            View Grid Layout →
+          </a>
+        </div>
+
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-8">
           <div className="mb-4 md:mb-0">

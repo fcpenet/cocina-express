@@ -6,6 +6,23 @@ const nextConfig = {
   },
   basePath: process.env.NODE_ENV === 'production' ? '/cocina-express' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/cocina-express/' : '',
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'ALLOWALL',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "frame-ancestors *",
+          },
+        ],
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

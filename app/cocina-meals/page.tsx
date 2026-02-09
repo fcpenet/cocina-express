@@ -43,8 +43,10 @@ export default function CocinaMealsGrid() {
 
       const canvas = await html2canvas(gridRef.current, {
         backgroundColor: null,
-        scale: 2,
+        scale: 6, // High resolution for tarpaulin printing (6x original size)
         logging: false,
+        useCORS: true,
+        allowTaint: true,
       });
 
       // Convert canvas to blob

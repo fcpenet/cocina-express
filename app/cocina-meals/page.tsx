@@ -3,6 +3,12 @@
 import { useRef } from 'react'
 import { basePath } from '../config';
 
+type Meal = {
+  name: string;
+  price: string;
+  isLogo?: boolean;
+};
+
 export default function CocinaMealsGrid() {
   const gridRef = useRef<HTMLDivElement>(null)
 
@@ -16,7 +22,7 @@ export default function CocinaMealsGrid() {
     return `${basePath}/assets/food-images/${filename}.jpg`;
   };
 
-  const meals = [
+  const meals: Meal[] = [
     { name: "BACON (2PCS)", price: "₱99" },
     { name: "BAGNET", price: "₱120" },
     { name: "BANGUS (BONELESS, HALF)", price: "₱120" },
@@ -32,6 +38,7 @@ export default function CocinaMealsGrid() {
     { name: "SPAM (3PCS)", price: "₱99" },
     { name: "TAPA", price: "₱99" },
     { name: "TOCINO", price: "₱99" },
+    { name: "LOGO", price: "", isLogo: true },
   ];
 
   const exportAsImage = async () => {
@@ -108,12 +115,6 @@ export default function CocinaMealsGrid() {
         {/* Main Content */}
         <div className="max-w-7xl mx-auto">
           <div ref={gridRef} className="bg-red-700 bg-opacity-90 rounded-lg p-8 shadow-2xl">
-              {/* Title for Export */}
-              <h2 className="text-5xl md:text-6xl font-black text-yellow-300 text-center mb-8 drop-shadow-lg"
-                  style={{textShadow: '3px 3px 6px rgba(0,0,0,0.5)'}}>
-                COCINA EXPRESS NI PENET
-              </h2>
-
               {/* Grid Layout */}
               <div className="grid grid-cols-8 gap-4">
                 {meals.map((meal, idx) => (
@@ -123,18 +124,22 @@ export default function CocinaMealsGrid() {
                   >
                     <div className="relative mb-2">
                       <img
-                        src={getImagePath(meal.name)}
+                        src={meal.isLogo ? `${basePath}/assets/food-images/logo.JPEG` : getImagePath(meal.name)}
                         alt={meal.name}
                         className="w-40 h-40 rounded-full object-cover border-4 border-yellow-300 shadow-lg"
                         onError={(e) => {
                           e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="160" height="160"%3E%3Ccircle cx="80" cy="80" r="80" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="64"%3E🍽️%3C/text%3E%3C/svg%3E';
                         }}
                       />
-                      <div className="absolute -bottom-2 right-0 w-12 h-12 bg-white rounded-full border-2 border-black shadow-lg"></div>
+                      {!meal.isLogo && (
+                        <div className="absolute -bottom-2 right-0 w-12 h-12 bg-white rounded-full border-2 border-black shadow-lg"></div>
+                      )}
                     </div>
-                    <h3 className="text-white font-bold text-xs uppercase leading-tight min-h-[2.5rem] flex items-center">
-                      {meal.name}
-                    </h3>
+                    {!meal.isLogo && (
+                      <h3 className="text-white font-bold text-xs uppercase leading-tight min-h-[2.5rem] flex items-center">
+                        {meal.name}
+                      </h3>
+                    )}
                   </div>
                 ))}
               </div>

@@ -24,7 +24,7 @@ export default function CocinaMealsGrid() {
     { name: "HOTDOG, GIANT TJ", price: "₱99" },
     { name: "HOTDOG, JUMBO (1PC)", price: "₱70" },
     { name: "LIEMPO", price: "₱120" },
-    { name: "LONGGANISA (2PCS)", price: "₱120" },
+    { name: "LONGGANISA (3PCS)", price: "₱120" },
     { name: "PORKCHOP", price: "₱120" },
     { name: "SAUSAGE, HUNGARIAN", price: "₱99" },
     { name: "SPAM (3PCS)", price: "₱99" },
@@ -113,14 +113,17 @@ export default function CocinaMealsGrid() {
                     key={idx}
                     className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 hover:bg-opacity-20 transition-all duration-300 flex flex-col items-center text-center border-2 border-white border-opacity-20"
                   >
-                    <img
-                      src={getImagePath(meal.name)}
-                      alt={meal.name}
-                      className="w-40 h-40 rounded-full object-cover mb-2 border-4 border-yellow-300 shadow-lg"
-                      onError={(e) => {
-                        e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="160" height="160"%3E%3Ccircle cx="80" cy="80" r="80" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="64"%3E🍽️%3C/text%3E%3C/svg%3E';
-                      }}
-                    />
+                    <div className="relative mb-2">
+                      <img
+                        src={getImagePath(meal.name)}
+                        alt={meal.name}
+                        className="w-40 h-40 rounded-full object-cover border-4 border-yellow-300 shadow-lg"
+                        onError={(e) => {
+                          e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="160" height="160"%3E%3Ccircle cx="80" cy="80" r="80" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="64"%3E🍽️%3C/text%3E%3C/svg%3E';
+                        }}
+                      />
+                      <div className="absolute -bottom-2 right-0 w-12 h-12 bg-white rounded-full border-2 border-black shadow-lg"></div>
+                    </div>
                     <h3 className="text-white font-bold text-xs uppercase leading-tight min-h-[2.5rem] flex items-center">
                       {meal.name}
                     </h3>

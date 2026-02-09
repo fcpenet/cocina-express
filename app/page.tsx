@@ -25,6 +25,7 @@ export default function Menu() {
       { name: "HOTDOG, JUMBO (1PC)", price: "₱70" },
       { name: "LIEMPO", price: "₱120" },
       { name: "LONGGANISA (3PCS)", price: "₱120" },
+      { name: "NUGGETS", price: "₱99" },
       { name: "PORKCHOP", price: "₱120" },
       { name: "SAUSAGE, HUNGARIAN", price: "₱99" },
       { name: "SPAM (3PCS)", price: "₱99" },

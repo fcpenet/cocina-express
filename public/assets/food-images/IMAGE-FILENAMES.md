@@ -11,10 +11,10 @@ Place your dish photos in this folder with these exact filenames:
 - `hotdog-giant-tj.jpg`
 - `hotdog-jumbo-1pc.jpg`
 - `liempo.jpg`
-- `longganisa-2pcs.jpg`
+- `longganisa-3pcs.jpg`
+- `nuggets.jpg`
 - `porkchop.jpg`
 - `sausage-hungarian.jpg`
-- `siomai-4pcs.jpg`
 - `spam-3pcs.jpg`
 - `tapa.jpg`
 - `tocino.jpg`

@@ -107,7 +107,7 @@ export default function CocinaMealsGrid() {
         <div className="max-w-7xl mx-auto">
           <div ref={gridRef} className="bg-red-700 bg-opacity-90 rounded-lg p-8 shadow-2xl">
               {/* Grid Layout */}
-              <div className="grid grid-cols-7 gap-4">
+              <div className="grid grid-cols-8 gap-4">
                 {meals.map((meal, idx) => (
                   <div
                     key={idx}

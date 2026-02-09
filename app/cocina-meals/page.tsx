@@ -120,13 +120,13 @@ export default function CocinaMealsGrid() {
                 {meals.map((meal, idx) => (
                   <div
                     key={idx}
-                    className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 hover:bg-opacity-20 transition-all duration-300 flex flex-col items-center text-center border-2 border-white border-opacity-20"
+                    className={`bg-white bg-opacity-10 backdrop-blur-sm rounded-xl hover:bg-opacity-20 transition-all duration-300 flex flex-col items-center text-center ${!meal.isLogo ? 'border-2 border-white border-opacity-20 p-4' : 'justify-center'}`}
                   >
-                    <div className="relative mb-2">
+                    <div className={`relative ${!meal.isLogo ? 'mb-2' : ''}`}>
                       <img
                         src={meal.isLogo ? `${basePath}/assets/food-images/logo.JPEG` : getImagePath(meal.name)}
                         alt={meal.name}
-                        className="w-40 h-40 rounded-full object-cover border-4 border-yellow-300 shadow-lg"
+                        className={`w-40 h-40 rounded-full shadow-lg ${meal.isLogo ? 'object-contain bg-black p-2' : 'object-cover border-4 border-yellow-300'}`}
                         onError={(e) => {
                           e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="160" height="160"%3E%3Ccircle cx="80" cy="80" r="80" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="64"%3E🍽️%3C/text%3E%3C/svg%3E';
                         }}

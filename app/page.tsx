@@ -85,9 +85,9 @@ export default function Menu() {
                   <img
                     src={getImagePath(item.name)}
                     alt={item.name}
-                    className="w-24 h-24 rounded-full object-cover flex-shrink-0"
+                    className="w-40 h-40 rounded-full object-cover flex-shrink-0"
                     onError={(e) => {
-                      e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="96" height="96"%3E%3Ccircle cx="48" cy="48" r="48" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="48"%3E🍽️%3C/text%3E%3C/svg%3E';
+                      e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="160" height="160"%3E%3Ccircle cx="80" cy="80" r="80" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="64"%3E🍽️%3C/text%3E%3C/svg%3E';
                     }}
                   />
                   <span className="font-semibold text-sm md:text-base uppercase">{item.name}</span>
@@ -109,9 +109,9 @@ export default function Menu() {
                       <img
                         src={getImagePath(item.name)}
                         alt={item.name}
-                        className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+                        className="w-40 h-40 rounded-full object-cover flex-shrink-0"
                         onError={(e) => {
-                          e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="32" height="32"%3E%3Ccircle cx="16" cy="16" r="16" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="18"%3E🍽️%3C/text%3E%3C/svg%3E';
+                          e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="160" height="160"%3E%3Ccircle cx="80" cy="80" r="80" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="64"%3E🍽️%3C/text%3E%3C/svg%3E';
                         }}
                       />
                       <span className="font-semibold text-sm md:text-base uppercase">{item.name}</span>

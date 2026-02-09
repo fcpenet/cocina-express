@@ -108,6 +108,12 @@ export default function CocinaMealsGrid() {
         {/* Main Content */}
         <div className="max-w-7xl mx-auto">
           <div ref={gridRef} className="bg-red-700 bg-opacity-90 rounded-lg p-8 shadow-2xl">
+              {/* Title for Export */}
+              <h2 className="text-5xl md:text-6xl font-black text-yellow-300 text-center mb-8 drop-shadow-lg"
+                  style={{textShadow: '3px 3px 6px rgba(0,0,0,0.5)'}}>
+                COCINA EXPRESS NI PENET
+              </h2>
+
               {/* Grid Layout */}
               <div className="grid grid-cols-8 gap-4">
                 {meals.map((meal, idx) => (

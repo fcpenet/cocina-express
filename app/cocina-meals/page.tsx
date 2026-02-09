@@ -130,22 +130,22 @@ export default function CocinaMealsGrid() {
                   </div>
                 ))}
               </div>
+            </div>
 
-              {/* Footer Notes */}
-              <div className="mt-8 text-center bg-yellow-400 bg-opacity-90 rounded-lg p-4">
-                <p className="text-sm text-red-900 font-semibold">
-                  *with Cocina Rice & Egg
-                </p>
-                <p className="text-sm text-red-800">add 15 for sizzling sauce</p>
-                <p className="text-sm text-red-800">add 10 for garlic cheese sauce</p>
-              </div>
+            {/* Footer Notes */}
+            <div className="mt-8 text-center bg-yellow-400 bg-opacity-90 rounded-lg p-4">
+              <p className="text-sm text-red-900 font-semibold">
+                *with Cocina Rice & Egg
+              </p>
+              <p className="text-sm text-red-800">add 15 for sizzling sauce</p>
+              <p className="text-sm text-red-800">add 10 for garlic cheese sauce</p>
+            </div>
 
-              {/* Contact Info */}
-              <div className="mt-6 text-center text-white">
-                <p className="font-bold text-xl mb-2">cocina</p>
-                <p className="text-sm mb-1">📍 124 F. Manalo St., Calzada Tipas, Taguig</p>
-                <p className="text-sm">📞 0999 482 5762 / 0917 726 0908 (Viber)</p>
-              </div>
+            {/* Contact Info */}
+            <div className="mt-6 text-center text-white">
+              <p className="font-bold text-xl mb-2">cocina</p>
+              <p className="text-sm mb-1">📍 124 F. Manalo St., Calzada Tipas, Taguig</p>
+              <p className="text-sm">📞 0999 482 5762 / 0917 726 0908 (Viber)</p>
             </div>
           </div>
         </div>

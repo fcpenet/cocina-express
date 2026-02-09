@@ -1,4 +1,16 @@
+'use client'
+
 export default function Menu() {
+  // Helper function to convert dish name to filename
+  const getImagePath = (dishName: string) => {
+    const filename = dishName
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[(),/]/g, '')
+      .replace(/--+/g, '-');
+    return `/assets/food-images/${filename}.jpg`;
+  };
+
   const leftColumn = {
     title: "COCINA MEALS*",
     items: [
@@ -13,7 +25,6 @@ export default function Menu() {
       { name: "LONGGANISA (2PCS)", price: "₱120" },
       { name: "PORKCHOP", price: "₱120" },
       { name: "SAUSAGE, HUNGARIAN", price: "₱99" },
-      { name: "SIOMAI (4PCS)", price: "₱60" },
       { name: "SPAM (3PCS)", price: "₱99" },
       { name: "TAPA", price: "₱99" },
       { name: "TOCINO", price: "₱99" },
@@ -68,9 +79,17 @@ export default function Menu() {
           {/* Left Column - Cocina Meals */}
           <div className="bg-red-700 bg-opacity-90 rounded-lg p-6 shadow-2xl">
             <h3 className="text-3xl font-bold text-white mb-6">{leftColumn.title}</h3>
-            <div className="space-y-2">
+            <div className="space-y-3">
               {leftColumn.items.map((item, idx) => (
-                <div key={idx} className="flex justify-between items-center text-white">
+                <div key={idx} className="flex items-center text-white gap-3">
+                  <img
+                    src={getImagePath(item.name)}
+                    alt={item.name}
+                    className="w-24 h-24 rounded-full object-cover flex-shrink-0"
+                    onError={(e) => {
+                      e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="96" height="96"%3E%3Ccircle cx="48" cy="48" r="48" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="48"%3E🍽️%3C/text%3E%3C/svg%3E';
+                    }}
+                  />
                   <span className="font-semibold text-sm md:text-base uppercase">{item.name}</span>
                   <div className="flex-grow border-b-2 border-dotted border-white border-opacity-40 mx-2 mb-1"></div>
                   <span className="font-bold text-yellow-300">{item.price}</span>
@@ -84,9 +103,17 @@ export default function Menu() {
             {rightSections.map((section, sectionIdx) => (
               <div key={sectionIdx} className="bg-orange-500 bg-opacity-90 rounded-lg p-6 shadow-2xl">
                 <h3 className="text-3xl font-bold text-yellow-300 mb-6 drop-shadow">{section.title}</h3>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   {section.items.map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-center text-white">
+                    <div key={idx} className="flex items-center text-white gap-3">
+                      <img
+                        src={getImagePath(item.name)}
+                        alt={item.name}
+                        className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+                        onError={(e) => {
+                          e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="32" height="32"%3E%3Ccircle cx="16" cy="16" r="16" fill="%23ddd"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="18"%3E🍽️%3C/text%3E%3C/svg%3E';
+                        }}
+                      />
                       <span className="font-semibold text-sm md:text-base uppercase">{item.name}</span>
                       <div className="flex-grow border-b-2 border-dotted border-white border-opacity-40 mx-2 mb-1"></div>
                       <span className="font-bold text-yellow-300">{item.price}</span>
